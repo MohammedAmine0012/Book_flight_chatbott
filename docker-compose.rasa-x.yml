@@ -1,0 +1,55 @@
+version: '3.0'
+services:
+  rasa-x:
+    image: rasa/rasa-x:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - RASA_X_PASSWORD=me
+      - RASA_TOKEN=token
+      - RASA_X_HOST=rasa-x
+      - RASA_X_DB_HOST=db
+      - RASA_X_DB_PORT=5432
+      - RASA_X_DB_USER=rasa
+      - RASA_X_DB_PASSWORD=rasa
+      - RASA_X_DB_DATABASE=rasa
+      - RASA_X_DB_DRIVER=postgresql
+      - RASA_X_DB_SSL_MODE=disable
+      - RASA_X_DB_LOGIN_DB=rasa
+      - RASA_X_DB_LOGIN_USER=rasa
+      - RASA_X_DB_LOGIN_PASSWORD=rasa
+    volumes:
+      - ./:/app
+    depends_on:
+      - rasa
+      - action-server
+      - db
+
+  rasa:
+    image: rasa/rasa:3.6.2
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    command: run --enable-api --cors "*" --debug
+    depends_on:
+      - action-server
+
+  action-server:
+    image: rasa/rasa-sdk:3.6.2
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+
+  db:
+    image: postgres:13.0
+    environment:
+      - POSTGRES_USER=rasa
+      - POSTGRES_PASSWORD=rasa
+      - POSTGRES_DB=rasa
+    volumes:
+      - rasa-db:/var/lib/postgresql/data
+
+volumes:
+  rasa-db: 

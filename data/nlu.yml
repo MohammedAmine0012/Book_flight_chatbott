@@ -1,0 +1,104 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - مرحباً
+    - أهلاً
+    - السلام عليكم
+    - كيف حالك
+    - صباح الخير
+    - مساء الخير
+
+- intent: goodbye
+  examples: |
+    - مع السلامة
+    - إلى اللقاء
+    - وداعاً
+    - شكراً لك
+    - شكراً جزيلاً
+
+- intent: affirm
+  examples: |
+    - نعم
+    - أجل
+    - صحيح
+    - بالتأكيد
+    - موافق
+    - نعم، أنا موافق
+
+- intent: deny
+  examples: |
+    - لا
+    - كلا
+    - غير موافق
+    - لا أريد
+    - لا شكراً
+
+- intent: mood_great
+  examples: |
+    - أنا بخير
+    - ممتاز
+    - رائع
+    - جيد جداً
+    - أنا سعيد
+
+- intent: mood_unhappy
+  examples: |
+    - أنا حزين
+    - لست بخير
+    - سيء
+    - غير جيد
+    - أنا محبط
+
+- intent: bot_challenge
+  examples: |
+    - هل أنت روبوت؟
+    - هل أنت إنسان؟
+    - هل أنت حقيقي؟
+    - من أنت؟
+    - هل يمكنك مساعدتي؟
+
+- intent: book_flight
+  examples: |
+    - أريد حجز رحلة طيران
+    - أريد السفر من [القاهرة](ville_depart) إلى [دبي](ville_destination)
+    - أريد حجز تذكرة طيران من [الرياض](ville_depart) إلى [لندن](ville_destination)
+    - أريد السفر في [15 يونيو](date_depart) والعودة في [20 يونيو](date_retour)
+    - أريد رحلة [درجة رجال الأعمال](classe) من [باريس](ville_depart) إلى [نيويورك](ville_destination)
+    - أريد رحلة [ذهاب وعودة](type_vol) من [القاهرة](ville_depart) إلى [اسطنبول](ville_destination)
+
+- intent: book_hotel
+  examples: |
+    - أريد حجز فندق
+    - أبحث عن فندق [خمس نجوم](categorie_hotel) في [دبي](ville_hotel)
+    - أريد حجز غرفة في [وسط المدينة](quartier_hotel) في [القاهرة](ville_hotel)
+    - أبحث عن فندق [أربع نجوم](categorie_hotel) في [الرياض](ville_hotel)
+    - أريد حجز غرفة لـ [شخصين](nombre_personnes) في [شارع الشيخ زايد](quartier_hotel)
+    - أبحث عن فندق [ثلاث نجوم](categorie_hotel) في [وسط البلد](quartier_hotel)
+
+- intent: confirm_reservation
+  examples: |
+    - نعم، أريد تأكيد الحجز
+    - نعم، هذا مناسب
+    - نعم، أريد المتابعة
+    - نعم، أكد الحجز
+    - نعم، هذا ما أريده
+
+- intent: change_option
+  examples: |
+    - أريد تغيير الحجز
+    - أريد تعديل التاريخ
+    - أريد تغيير المدينة
+    - أريد تغيير الفندق
+    - أريد تغيير درجة السفر
+    - أريد تغيير عدد الأشخاص
+
+- intent: select_option
+  examples: |
+    - أريد الخيار الأول
+    - أختار الخيار الثاني
+    - هذا الخيار مناسب
+    - أريد هذا الفندق
+    - أريد هذا الرحلة
+    - هذا ما أريده

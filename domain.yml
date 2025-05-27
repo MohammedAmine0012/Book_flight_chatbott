@@ -1,0 +1,122 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_flight        # nouveaux intents
+  - book_hotel
+  - select_option
+  - change_option
+  - confirm_reservation
+
+entities:
+  - ville_depart
+  - ville_destination
+  - date_depart
+  - date_retour
+  - classe
+  - type_vol            # aller-retour ou simple
+  - categorie_hotel
+  - ville_hotel
+  - quartier_hotel
+  - nombre_personnes
+  - option
+
+slots:
+  ville_depart:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_depart
+  ville_destination:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_destination
+  date_depart:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date_depart
+  date_retour:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date_retour
+  classe:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: classe
+  type_vol:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: type_vol
+  categorie_hotel:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: categorie_hotel
+  ville_hotel:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_hotel
+  quartier_hotel:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: quartier_hotel
+  nombre_personnes:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre_personnes
+  option:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: option
+
+actions:
+  - action_book_flight
+  - action_book_hotel
+  - action_confirm_reservation
+  - action_change_option
+
+responses:
+  utter_greet:
+    - text: "مرحباً! كيف يمكنني مساعدتك اليوم؟"
+    - text: "أهلاً وسهلاً! كيف يمكنني خدمتك؟"
+  utter_goodbye:
+    - text: "مع السلامة! نتمنى لك رحلة سعيدة"
+    - text: "إلى اللقاء! شكراً لاختيارك لنا"
+  utter_ask_ville_depart:
+    - text: "من أي مدينة تريد السفر؟"
+    - text: "ما هي مدينة المغادرة؟"
+  utter_ask_ville_destination:
+    - text: "إلى أي مدينة تريد السفر؟"
+    - text: "ما هي وجهتك؟"
+  utter_ask_date_depart:
+    - text: "متى تريد السفر؟"
+    - text: "ما هو تاريخ المغادرة المفضل لديك؟"
+  utter_ask_date_retour:
+    - text: "متى تريد العودة؟"
+    - text: "ما هو تاريخ العودة المفضل لديك؟"
+  utter_ask_classe:
+    - text: "Quelle est votre ville de destination ?"
+  # ... autres questions pour les entités
+  utter_flight_suggestions:
+    - text: "Voici quelques options de vol que j'ai trouvées : {flights}"
+  utter_hotel_suggestions:
+    - text: "Voici quelques hôtels disponibles : {hotels}"
+  utter_confirm_reservation:
+    - text: "Votre réservation est confirmée, merci pour votre confiance !"
+  utter_ask_change_option:
+    - text: "Quelle option souhaitez-vous modifier ?"

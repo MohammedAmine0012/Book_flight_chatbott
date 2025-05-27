@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+  - story: Greeting path
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: Goodbye path
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: Bot challenge path
+    steps:
+      - intent: bot_challenge
+      - action: utter_greet
+
+  - story: Mood great path
+    steps:
+      - intent: mood_great
+      - action: utter_greet
+
+  - story: Mood unhappy path
+    steps:
+      - intent: mood_unhappy
+      - action: utter_greet
+
+  - story: Réservation vol
+    steps:
+      - intent: book_flight
+      - action: action_book_flight
+      - action: utter_flight_suggestions
+      - intent: confirm_reservation
+      - action: action_confirm_reservation
+      - action: utter_goodbye
+
+  - story: Réservation hôtel
+    steps:
+      - intent: book_hotel
+      - action: action_book_hotel
+      - action: utter_hotel_suggestions
+      - intent: confirm_reservation
+      - action: action_confirm_reservation
+      - action: utter_goodbye
+
+  - story: Changer option
+    steps:
+      - intent: change_option
+      - action: action_change_option
+      - action: utter_ask_change_option
+      - intent: select_option
+      - action: utter_greet
